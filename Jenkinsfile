@@ -21,6 +21,7 @@ node('haimaxy-jnlp') {
         withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
             sh "docker login -u ${dockerHubUser} -p ${dockerHubPassword}"
             sh "docker push kwl123/jenkins-demo:${build_tag}"
+            //sh "docker push kwl123/jenkins-demo:${build_tag}"
         }
     }
     stage('Deploy') {
